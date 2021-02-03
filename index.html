@@ -20,6 +20,11 @@ L - show line numbers
 Enter - back to editing
 H - show shortcuts help
 
+Run persistently (more reliable than nohup to me):
+jupyter notebook --no-browser --port 8080 &> /dev/null & disown
+Connect with forwarding:
+ssh -L 8888:localhost:8888 some_short_alias
+
 3Feb2021
 ****************************************
 Github pages: often an old versions of the files are being served. 
@@ -30,7 +35,7 @@ https://github.com/user/repo/deployments
 ****************************************
 With ssh (especially for Amazon EC2) it's very usefull to do alias in ~/.ssh/config, i.e:
 
-Host a_short_name
+Host some_short_alias
   HostName ec2-12-345-678-901.compute-2.amazonaws.com
   IdentityFile ~/.ssh/some_key_path.pem
   User my_username
