@@ -2,6 +2,27 @@
 <pre>
 ******** Programming tips blog *********
 ****************************************
+AWS EC2:
+Extend disc space (EBS):
+Instances: checkbox target VM, Storage, click volume id, actions, modify volume. 
+SSH to machine, df -hT, lsblk to get more info.
+sudo growpart /dev/xvda 1 (counterintuitive, because lsblk and aws docs suggest 'xvda1 1')
+Should be enough, but df and lsbik show  different values, so I also used:
+sudo resize2fs /dev/xvda1
+
+No reboot required!
+
+3Feb2021
+****************************************
+****************************************
+Jupyter shortcuts: Esc to leve editing mode, arrows to jump between cells
+DD - delete cell
+L - show line numbers
+Enter - back to editing
+H - show shortcuts help
+
+3Feb2021
+****************************************
 Github pages: often an old versions of the files are being served. 
 https://github.com/user/repo/deployments
 ( https://github.com/huxwell/huxwell.github.io/deployments for me ) is a way to check if your commits have already been deployed.
