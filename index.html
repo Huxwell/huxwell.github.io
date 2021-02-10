@@ -3,6 +3,15 @@
 ******** Programming tips blog *********
 ****************************************
 AWS EC2:
+If you stop VMs when you don't use them and then restart, the address will change each time which is super annoying with ssh.
+Go to console.aws.amazon.com -> type Elastic IPs in search -> choose ec2 feature (not VPC feature) -> Allocate Elastic IP address (use all default options)
+Checkbox newly created IP -> Actions -> Associate Elastic IP -> choose your instance from the list. 
+Now you can always scp/sftp/ssh to newly created ip instead of always changing ec2-12-345-678-901.compute-2.amazonaws.com .
+According to aws.amazon.com/ec2/pricing/on-demand/ it costs around 12 cents / day if the instance is stopped AFAIU.
+
+10 Feb2021
+****************************************
+AWS EC2:
 Extend disc space (EBS):
 Instances: checkbox target VM, Storage, click volume id, actions, modify volume. 
 SSH to machine, df -hT, lsblk to get more info.
