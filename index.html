@@ -2,6 +2,17 @@
 <pre>
 ******** Programming tips blog *********
 ****************************************
+Git deleting branches:
+git push origin --delete branch_name
+git branch -D branch_name
+
+Jupyter logging model training with Darknet (%%capture will suppress live output, so it's not an option):
+import datetime
+file_prefix = datetime.datetime.now().strftime("%Y_%m_%d-%H_%M_%S")
+!./darknet detector params 2>&1 | tee ../train_logs/{file_prefix}.txt
+
+12 Feb2021
+****************************************
 AWS EC2:
 If you stop VMs when you don't use them and then restart, the address will change each time which is super annoying with ssh.
 Go to console.aws.amazon.com -> type Elastic IPs in search -> choose ec2 feature (not VPC feature) -> Allocate Elastic IP address (use all default options)
