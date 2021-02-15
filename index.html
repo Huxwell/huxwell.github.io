@@ -2,6 +2,25 @@
 <pre>
 ******** Programming tips blog *********
 ****************************************
+Setting DNS records is always painful - tiny details matter, tutorials are often wrong, changes take undefined time to propagate.
+Github pages + GoDaddy:
+First had to disable redirection (which was hidden deep). Than set:
+a 	@ 	185.199.108.153
+a 	@ 	185.199.109.153
+a 	@ 	185.199.110.153
+a 	@ 	185.199.111.153
+cname 	www 	@
+cname 	www.drapej.com 	@
+
+A records MUST have '@' as 'name'.
+_domainconnect can be deleted or kept - doesn't matter
+TTS - kept default values.
+
+The repo has to be named huxwell.github.io, (huxwell = my username), Settings->Custom Domain name MUST be www.drapej.com not drapej.com. 
+CNAME file in repo root: www.drapej.com (NOT drapej.com)
+
+15 Feb2021
+****************************************
 Git deleting branches:
 git push origin --delete branch_name
 git branch -D branch_name
