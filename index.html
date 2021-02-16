@@ -1,6 +1,15 @@
 <a href="lifehacks.html">Lifehacks</a> | <a href="idk.html">Questions I need to answer</a>
 <pre>
 ******** Programming tips blog *********
+My struggle to a find simple but accurate description of the YOLO object detection network:
+
+First, we had sliding windows + classification.
+Then R-CNN use unsupervised method (selective search) to propose bounding boxes.
+Fast R-CNN proposed bounding boxes after features extraction with the backbone network.
+Faster R-CNN learned a separate neural network to learn region proposals. The classification network also predicted offsets for BBs.
+YOLO introduced grid, and for each grid cell m bounding boxes (aka. anchors) are generated. One network predicts class, offset, width/height adjustment.
+
+16 Feb2021
 ****************************************
 Setting DNS records is always painful - tiny details matter, tutorials are often wrong, changes take undefined time to propagate.
 Github pages + GoDaddy:
