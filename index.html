@@ -1,6 +1,19 @@
 <a href="lifehacks.html">Lifehacks</a> | <a href="idk.html">Questions I need to answer</a>
 <pre>
 ******** Programming tips blog *********
+Darknet/YOLO_v4 - tips:
+It's surprisingly hard to find the actual architecture of YOLO models; and there is no Tensorboard to browse through the computation graph.
+It appears that https://netron.app/ and https://github.com/lutzroeder/netron support Darknet's .cfg files and return beautiful, interactive graphs.
+These graphs help to understand how the 3 [yolo] layers (2 for tiny-yolo) are attached (deep supervision of the model).
+
+Problems:
+1) The relation between batch/minibatch/subdivision/epoch/iteration/darknet binary outputs/steps/brun_in values/XXXX.weights is counterintuitive to me. 
+Asked questions on stack overflow, run some experiments; waiting for results.
+2) I would greatly appreciate if darknet returned current learning rate alongside with other metrics - perhaps I will fork and rebuild it.
+3) I still don't understand anchors/mask parameters per [yolo] layer instance. Why only a small portion of anchors is used at all?
+
+18 Feb2021
+****************************************
 My struggle to a find short but accurate description of the YOLO object detection network:
 
 First, we had sliding windows + classification.
