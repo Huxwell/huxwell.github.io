@@ -9,6 +9,9 @@ Replace in file syntax:
 sed -i 's/old_dir/new_dir\/subdir_after_escaping_slash/' test.txt
 Delete all lines containing string 'my_text' inline:
 sed -i '/my_text/d' filename.txt 
+Prepend dir name to each line (replace ^ which is beginning of a line):
+sed -i.bak 's/^/dir_name\//' infile.txt
+-i.bak flag makes sed work inplace, but creates backup file with .bak extension.
 
 Quitting hanging ssh session:
 ctrl + d, if it doesn't work:
