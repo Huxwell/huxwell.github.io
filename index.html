@@ -1,6 +1,26 @@
 <a href="lifehacks.html">Lifehacks</a>
 <pre>
 ******** Programming tips blog *********
+Solution to "Argument list too long" error while trying to mv or cp a lot of files in bash:
+instead of mv * target_dir/
+ls | xargs mv -t target_dir/
+
+Replace in file syntax:
+sed -i 's/old_dir/new_dir\/subdir_after_escaping_slash/' test.txt
+
+Quitting hanging ssh session:
+ctrl + d, if it doesn't work:
+enter ~ .
+
+Jupyter: stopping execution programmatically:
+class StopExecution(Exception):
+    def _render_traceback_(self):
+        pass
+# ....
+raise StopExecution
+
+1 Mar2021
+****************************************
 Darknet/YOLO_v4 - tips:
 It's surprisingly hard to find the actual architecture of YOLO models; and there is no Tensorboard to browse through the computation graph.
 It appears that https://netron.app/ and https://github.com/lutzroeder/netron support Darknet's .cfg files and return beautiful, interactive graphs.
