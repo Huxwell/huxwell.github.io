@@ -1,6 +1,11 @@
 <a href="lifehacks.html">Lifehacks</a>
 <pre>
 ******** Programming tips blog *********
+Quick partial ls of very big folder (-U suppresses sorting):
+ls -U | head -40
+
+3 Mar2021
+****************************************
 Solution to "Argument list too long" error while trying to mv or cp a lot of files in bash:
 instead of mv * target_dir/
 ls | xargs mv -t target_dir/
