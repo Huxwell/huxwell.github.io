@@ -1,6 +1,12 @@
 <a href="lifehacks.html">Lifehacks</a>
 <pre>
 ******** Programming tips blog *********
+Replace first char in each line inplace:
+
+sed -i 's/^./new_string/g' file.txt
+
+15 Mar2021
+****************************************
 Less with line numbering (-N) and starting from line (+n):
 less +29300 -N my_very_long_file_with_stupid_newline_missing_in_the_middle_of_it.txt
 
