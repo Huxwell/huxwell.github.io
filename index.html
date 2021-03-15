@@ -2,8 +2,10 @@
 <pre>
 ******** Programming tips blog *********
 Replace first char in each line inplace in all .txt files in directory:
-
 sed -i 's/^./new_string/g' *.txt
+
+Delete all empty txt files:
+find . -name '*.txt' -size 0 -delete
 
 15 Mar2021
 ****************************************
