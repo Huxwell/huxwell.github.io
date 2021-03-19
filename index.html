@@ -10,6 +10,20 @@ Checking the size and other info about an image in shell:
 identify color.jpg
 Will require some version of imagemagick, I just did 'apt-get install' the first proposed one.
 
+PIL->OpenCV conversion:
+
+from PIL import Image
+img = PIL.Image.open('img.jpg').convert('RGB') 
+img = numpy.array(img) 
+img = img[:, :, ::-1].copy() #RGB to BGR 
+
+Width height order:
+height, width = image.shape[:2] #cv2
+width, height = image.size[:2] #PIL
+
+Reading width and height without loading the whole image to memory - just open with PIL and don't display/modify:
+image = Image.open(path)
+
 19 Mar2021
 ****************************************
 
