@@ -1,6 +1,18 @@
 <a href="lifehacks.html">Lifehacks</a>
 <pre>
 ******** Programming tips blog *********
+The -u option in cp often help when you are to lazy to use rsync, but copying takes too long and also was interupted, here is what it does:
+'copy only when the SOURCE file is newer than the destination file or when the destination file is missing'
+I often endup using:
+cp -vru old_dir/ new_dir/
+
+Checking the size and other info about an image in shell:
+identify color.jpg
+Will require some version of imagemagick, I just did 'apt-get install' the first proposed one.
+
+19 Mar2021
+****************************************
+
 Replace first char in each line inplace in all .txt files in directory:
 sed -i 's/^./new_string/g' *.txt
 Use carefully! I've damaged some datasets by mistake with it.
