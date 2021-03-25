@@ -1,6 +1,7 @@
 <a href="lifehacks.html">Lifehacks</a>
 <pre>
 ******** Programming tips blog *********
+
 Piping in shell/bash sometimes works with simple |, sometimes not (depending on how arguments are parsed by given command/program).
 But simply adding 'xargs' seems to solve most of the problems:
 
@@ -11,6 +12,8 @@ Sed in pipe to check if annotation file for darknet (named as image, only with .
 !head -1 devel_images_list.txt | sed 's/.png/.txt/' | xargs cat
 
 (Don't ask me why no 'xargs' in sed; for now I am just pasting 'xargs' all over the place and see whether it works or not).
+
+25 Mar2021
 ****************************************
 The -u option in cp often help when you are to lazy to use rsync, but copying takes too long and also was interupted, here is what it does:
 'copy only when the SOURCE file is newer than the destination file or when the destination file is missing'
