@@ -1,7 +1,22 @@
 <a href="lifehacks.html">Lifehacks</a>
 <pre>
 ******** Programming tips blog *********
+If you run detection with darknet (i.e yolov3 or yolov4), it's nice to know activation function values (aka. confidence level, although it's not very precise).
+For each detection darknet may print it, but it's often hard to match the values with the actual bounding boxes.
 
+You can modify src/image.c file and rerun make all in darknet directory to draw these values on top of the bounding boxes.
+Just add:
+
+char prop_str[256];
+strcat(labelstr, names[selected_detections[i].best_class]);
+sprintf(prop_str, " \n%f", selected_detections[i].det.prob[best_class]);
+strcat(labelstr, prop_str);
+
+After line 444, although it might change over time.
+It should be in draw_detections_v3() even if you use yolov4; has to appear before get_label_v3() call but after labelstr is initiated.
+
+1 Apr2021
+****************************************
 Piping in shell/bash sometimes works with simple |, sometimes not (depending on how arguments are parsed by given command/program).
 But simply adding 'xargs' seems to solve most of the problems:
 
@@ -40,7 +55,6 @@ image = Image.open(path)
 
 19 Mar2021
 ****************************************
-
 Replace first char in each line inplace in all .txt files in directory:
 sed -i 's/^./new_string/g' *.txt
 Use carefully! I've damaged some datasets by mistake with it.
