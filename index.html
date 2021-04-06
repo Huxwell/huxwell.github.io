@@ -1,6 +1,21 @@
 <a href="lifehacks.html">Lifehacks</a> | <a href="https://filip-drapejkowski.medium.com/">My Medium Articles</a>
 <pre>
 ******** Programming tips blog *********
+I use bash (not zsh) and I am not a big fan of fancy plugins or complicated, customized setups.
+With that being said, I still use guake and fzf. The former provides fuzzy search in history and better autocompletion, and is surprisingly easy to setup.
+It uses Levenstein or edit distnace to find the closest command to the thing you've typed in your history or files structure.
+I put it in every AWS instance / devbox / laptop that I use.
+
+Currently I setup it with:
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install
+Agree to everything.
+source ~/.bashrc 
+So I don't have to reboot/relogin.
+Than ctrl + r is enough to start fuzzy searching the history.
+
+6 Apr2021
+****************************************
 If you run detection with darknet (i.e yolov3 or yolov4), it's nice to know activation function values (aka. confidence level, although it's not very precise).
 For each detection darknet may print it, but it's often hard to match the values with the actual bounding boxes.
 
