@@ -2,10 +2,13 @@
 <pre>
 ******** Programming tips blog *********
 Resize images in dir in bash:
-
 sudo apt-get install imagemagick
-cp -rv my_dir my_dir_backup
 convert *.png -verbose -resize 640x480 my_dir/*.png
+
+Or even better, so that we keep the same filenames:
+cp -rv my_dir my_dir_backup
+mogrify *.png -verbose -resize 640x480 my_dir/*.png
+
 Verbose, because sometimes it looks like it failed, while eveyrthing was ok.
 
 7 Apr2021
