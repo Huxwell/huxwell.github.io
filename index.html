@@ -1,6 +1,15 @@
 <a href="lifehacks.html">Lifehacks</a> | <a href="https://filip-drapejkowski.medium.com/">My Medium Articles</a>
 <pre>
 ******** Programming tips blog *********
+Resize images in dir in bash:
+
+sudo apt-get install imagemagick
+cp -rv my_dir my_dir_backup
+convert *.png -verbose -resize 640x480 my_dir/*.png
+Verbose, because sometimes it looks like it failed, while eveyrthing was ok.
+
+7 Apr2021
+****************************************
 I use bash (not zsh) and I am not a big fan of fancy plugins or complicated, customized setups.
 With that being said, I still use guake and fzf. The former provides fuzzy search in history and better autocompletion, and is surprisingly easy to setup.
 It uses Levenstein or edit distnace to find the closest command to the thing you've typed in your history or files structure.
