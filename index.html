@@ -1,6 +1,29 @@
 <a href="lifehacks.html">Lifehacks</a> | <a href="https://filip-drapejkowski.medium.com/">My Medium Articles</a>
 <pre>
 ******** Programming tips blog *********
+I've recently encountered a fascinating problem: yolov4 models perform worse after conversion from darknet to TFLite, ONNX or PyTorch.
+It's fascinating, that the repos are so popular, but nobody have noticed / solved it yet. Used following repos:
+
+https://github.com/Tianxiaomo/pytorch-YOLOv4
+https://github.com/hunglc007/tensorflow-yolov4-tflite
+
+They are not fully blind, but activation values ('probabilities') differ, and some detections are missing.
+First, I thought Non-Maxiumum Supression is the reason (it has multiple implementations), then I figured maybe something is different with preprocessing.
+So I made sure normalization is the same, and I've learned yolov4 on square 416x416 images (instead of horizontal rectangles) to reduce potential for error.
+But It didn't help.
+
+I think I've solved a major bug (dangling skip-links):
+https://github.com/Tianxiaomo/pytorch-YOLOv4/issues/370
+submitted a PR:
+https://github.com/Tianxiaomo/pytorch-YOLOv4/pull/412
+but the discrepancy in scores remains.
+
+Btw, here are some examples of why I am hesitant to calling activation function values (from softmax or sigmoid) probabilities or confidence scores:
+https://stats.stackexchange.com/questions/309642/why-is-softmax-output-not-a-good-uncertainty-measure-for-deep-learning-models
+
+9 Apr2021
+****************************************
+
 Running darknet binary for yolo predictions from jupyter notebook (or colab, or python in general) without mess in output:
 
 import subprocess
