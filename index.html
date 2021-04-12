@@ -71,6 +71,7 @@ For each detection darknet may print it, but it's often hard to match the values
 You can modify src/image.c file and rerun make all in darknet directory to draw these values on top of the bounding boxes.
 Just add:
 
+const int best_class = selected_detections[i].best_class;
 char prop_str[256];
 strcat(labelstr, names[selected_detections[i].best_class]);
 sprintf(prop_str, " \n%f", selected_detections[i].det.prob[best_class]);
