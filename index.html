@@ -1,6 +1,17 @@
 <a href="lifehacks.html">Lifehacks</a> | <a href="https://filip-drapejkowski.medium.com/">My Medium Articles</a>
 <pre>
 ******** Programming tips blog *********
+
+Just noticed the "File->Download as->PDF via LaTeX" functionality in jupyter. It requires
+!sudo apt-get install texlive-xetex texlive-fonts-recommended texlive-generic-recommended
+...and maybe clearing-up too-long outputs, because of lack of embedded windows with scrolling in pdfs.
+
+But it's often quite nice for a) comparing detailed metrics of trained ML models b) debugging differences in pre- and postprocessing
+c) Jira and documentation duties.
+
+23 Apr2021
+****************************************
+
 I've recently encountered a fascinating problem: yolov4 models perform worse after conversion from darknet to TFLite, ONNX or PyTorch.
 It's fascinating, that the repos are so popular, but nobody have noticed / solved it yet. Used following repos:
 
