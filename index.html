@@ -1,6 +1,19 @@
 <a href="lifehacks.html">Lifehacks</a> | <a href="https://filip-drapejkowski.medium.com/">My Medium Articles</a>
 <pre>
 ******** Programming tips blog *********
+diff from bash is actually nice if you ignore whitespaces (! for jupyter):
+!diff -w some_predictions.txt some_other_predictions_that_should_be_the_same_but_who_knows.txt
+
+Btw the problem from 10 Apr2021 is kinda solved.
+My code based on pytorch-YOLOv4 was giving wrong activations (confidence scores).
+https://github.com/Tianxiaomo/pytorch-YOLOv4 actually gives proper activations.
+https://github.com/hunglc007/tensorflow-yolov4-tflite will give me wrong activations.
+Something might be off with NMS, but that I am still investigating.
+The problem is that pytorch-YOLOv4 uses IoU threshold while Darknet afaik doesn't.
+Will try pytorch-YOLOv4 with 0.0 IoU threshold and see what happens.
+
+23 Apr2021
+****************************************
 
 Just noticed the "File->Download as->PDF via LaTeX" functionality in jupyter. It requires
 !sudo apt-get install texlive-xetex texlive-fonts-recommended texlive-generic-recommended
