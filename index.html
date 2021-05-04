@@ -1,6 +1,33 @@
 <a href="lifehacks.html">Lifehacks</a> | <a href="https://filip-drapejkowski.medium.com/">My Medium Articles</a>
 <pre>
 ******** Programming tips blog *********
+I've made up a nice quizz question, give it a try:
+
+Automatic differentiation is...
+
+a) ...also called numerical differentiation. It uses 2 arguments in small vincinity of the argument for which we want to compute the derivative, 
+computes function values, devides difference in values by difference in arguments and the resulting slope is estimate of the derivative we were looking for. 
+
+b) ...also called symbolic differentiation. It exploits the chain rule and the fact that complex functions consist of small subproblems 
+which are easy to differentiate. The resulting formula is simplified to a short and elegant form.
+
+c) ...also called computational differentiation. It exploits the chain rule and the fact that complex functions consist of small subproblems 
+which are easy to differentiate. Lack of simplification of the final formula allows optimizations i.e. to quickly compute and reuse partial derivatives 
+with respect to many inputs.
+
+d) All of above.
+
+
+
+Ok, the correct answer is AFAIK (I cannot just write the letter, cause you will read it before thinking for yourself):
+not the first letter of alphabet, not the second, and not the fourth.
+Why would you care? Well PyTorch uses automatic differentiation, and if I understand corectly caffe does something betwen symbolic and computational.
+You have to compute derivatives for backward pass for each layer symbolically but the framework will take care of chain rule for different layers.
+Still need to check what other frameworks do exactly.
+
+4 May2021
+****************************************
+
 diff from bash is actually nice if you ignore whitespaces (! for jupyter):
 !diff -w some_predictions.txt some_other_predictions_that_should_be_the_same_but_who_knows.txt
 
