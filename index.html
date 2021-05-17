@@ -2,6 +2,17 @@
 <pre>
 ******** Programming tips blog *********
 
+Cheatsheet for running multiple programs in one line in bash:
+A; B    # Run A and then B, regardless of success of A
+A && B  # Run B if and only if A succeeded
+A || B  # Run B if and only if A failed
+A &     # Run A in background.
+
+which explains why my docker build [...] docker run was running the old image (not the rebuilt one)
+
+17 May2021
+****************************************
+
 I've made up a nice quiz question about gradient backpropagation, give it a try:
 
 Automatic differentiation is...
