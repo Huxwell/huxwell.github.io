@@ -1,7 +1,18 @@
 <a href="lifehacks.html">Lifehacks</a> | <a href="https://filip-drapejkowski.medium.com/">My Medium Articles</a>
 <pre>
 ******** Programming tips blog *********
+While installing ROS2 and Carla simulator on Ubuntu I got the following error:
+W: Target Packages (main/binary-all/Packages) is configured multiple times in /etc/apt/sources.list.d/ros2-latest.list:1 and /etc/apt/sources.list.d/ros2.list:1
 
+The reason was running from one guide:
+sudo sh -c 'echo "deb [arch=$(dpkg --print-architecture)] http://packages.ros.org/ros2/ubuntu $(lsb_release -cs) main" > /etc/apt/sources.list.d/ros2-latest.list'
+And from another guide writing some lines to /etc/apt/sources.list.d/ros2.list .
+
+All the stackoverflow/ros boards suggestions regarding editing /etc/apt/sources.list didn't help, but the solution I figured was simple:
+etc/apt/sources.list.d is a directory, so I just deleted all files from there and ran "sudo apt update". 
+
+5 Jul2021
+****************************************
 How to deal with remote ssh in vscode (visual studio code) malfunctioning, hanging etc:
 
 ctrl + shift + p and enter
