@@ -1,7 +1,7 @@
-<a href="lifehacks.html">Lifehacks</a> | <a href="https://filip-drapejkowski.medium.com/">My Medium Articles</a> | <a href="http://brainramen.com">My Android App</a>
+[Lifehacks](lifehacks.html) | [My Medium Articles](https://filip-drapejkowski.medium.com/) | [My Android App](http://brainramen.com)
 
-Programming tips blog 
-----
+# Programming tips blog 
+
 While installing ROS2 and Carla simulator on Ubuntu I got the following error:
 W: Target Packages (main/binary-all/Packages) is configured multiple times in /etc/apt/sources.list.d/ros2-latest.list:1 and /etc/apt/sources.list.d/ros2.list:1
 
