@@ -1,7 +1,7 @@
 <a href="lifehacks.html">Lifehacks</a> | <a href="https://filip-drapejkowski.medium.com/">My Medium Articles</a> | <a href="http://brainramen.com">My Android App</a>
 
 Programming tips blog 
-****************************************
+----
 While installing ROS2 and Carla simulator on Ubuntu I got the following error:
 W: Target Packages (main/binary-all/Packages) is configured multiple times in /etc/apt/sources.list.d/ros2-latest.list:1 and /etc/apt/sources.list.d/ros2.list:1
 
@@ -15,7 +15,7 @@ All the stackoverflow/ros boards suggestions regarding editing /etc/apt/sources.
 etc/apt/sources.list.d is a directory, so I just deleted all files from there and ran "sudo apt update". 
 
 5 Jul 2021
-****************************************
+----
 How to deal with remote ssh in vscode (visual studio code) malfunctioning, hanging etc:
 
 ctrl + shift + p and enter
@@ -24,7 +24,7 @@ Remote-SSH: kill VS Code Server on Host...
 Than wait patiently for few minutes (maybe close vscode if it hangs; maybe kill it from htop if needed / if there is no reposnde for ctrl + shift + p).
 
 25 Jun 2021
-****************************************
+----
 
 Changing the subject: the easiest way I know to check image size (and other info from bash):
 file /path/to/image.png
@@ -33,7 +33,7 @@ Btw, Sorry for lack of updates, but I'm recently spending a lot of free time on 
 The app is supposed to help in practicing math/deep learning facts/computer vision tricks and is going to be called 'brainramen'.
 
 25 Jun 2021
-****************************************
+----
 
 Cheatsheet for running multiple programs in one line in bash:
 ```
@@ -45,7 +45,7 @@ A &     # Run A in background.
 which explains why my docker build [...] docker run was running the old image (not the rebuilt one)
 
 17 May 2021
-****************************************
+----
 
 I've made up a nice quiz question about gradient backpropagation, give it a try:
 
@@ -76,7 +76,7 @@ https://jonathan-hui.medium.com/tensorflow-automatic-differentiation-autodiff-1a
 https://www.tensorflow.org/guide/autodiff
 
 4 May 2021
-****************************************
+----
 
 diff from bash is actually nice if you ignore whitespaces (! for jupyter):
 !diff -w some_predictions.txt some_other_predictions_that_should_be_the_same_but_who_knows.txt
@@ -92,7 +92,7 @@ Update: IoU threshold 0.45-0.5 in pytorch-YOLOv4 seems to be the best choice for
 (in fact mAP slightly better with PyTorch than in original Darknet model).
 
 23 Apr 2021
-****************************************
+----
 
 Just noticed the "File->Download as->PDF via LaTeX" functionality in jupyter. It requires
 !sudo apt-get install texlive-xetex texlive-fonts-recommended texlive-generic-recommended
@@ -102,7 +102,7 @@ But it's often quite nice for a) comparing detailed metrics of trained ML models
 c) Jira and documentation duties.
 
 23 Apr 2021
-****************************************
+----
 
 I've recently encountered a fascinating problem: yolov4 models perform worse after conversion from darknet to TFLite, ONNX or PyTorch.
 It's fascinating, that the repos are so popular, but nobody have noticed / solved it yet. Used following repos:
@@ -125,13 +125,13 @@ Btw, here are some examples of why I am hesitant to calling activation function 
 https://stats.stackexchange.com/questions/309642/why-is-softmax-output-not-a-good-uncertainty-measure-for-deep-learning-models
 
 10 Apr 2021
-****************************************
+----
 I used to "print to pdf" using system dialog to get rid of additional pages of documents easily. 
 Apparently the pdf becomes a picture and you can't copy text from it anymore. Switched to:
 pdftk ~/Desktop/too-much-pages.pdf cat 3-7 output ~/Desktop/less_pages.pdf
 
 9 Apr 2021
-****************************************
+----
 Running darknet binary for yolo predictions from jupyter notebook (or colab, or python in general) without mess in output:
 
 ```
@@ -156,7 +156,7 @@ mogrify *.png -verbose -resize 640x480 my_dir/*.png
 Verbose, because sometimes it looks like it failed, while everything was ok.
 
 7 Apr 2021
-****************************************
+----
 I use bash (not zsh) and I am not a big fan of fancy plugins or complicated, customized setups.
 With that being said, I still use guake and fzf. The former provides fuzzy search in history and better autocompletion, and is surprisingly easy to setup.
 It uses Levenstein or edit distnace to find the closest command to the thing you've typed in your history or files structure.
@@ -175,7 +175,7 @@ So I don't have to reboot/relogin.
 Than ctrl + r is enough to start fuzzy searching the history.
 
 6 Apr 2021
-****************************************
+----
 If you run detection with darknet (i.e yolov3 or yolov4), it's nice to know activation function values (aka. confidence level, although it's not very precise).
 For each detection darknet may print it, but it's often hard to match the values with the actual bounding boxes.
 
@@ -194,7 +194,7 @@ After line 444, although it might change over time.
 It should be in ```draw_detections_v3()``` even if you use yolov4; has to appear before get_label_v3() call but after labelstr is initiated.
 
 1 Apr 2021
-****************************************
+----
 Piping in shell/bash sometimes works with simple |, sometimes not (depending on how arguments are parsed by given command/program).
 But simply adding 'xargs' seems to solve most of the problems:
 
@@ -209,7 +209,7 @@ Sed in pipe to check if annotation file for darknet (named as image, only with .
 (Don't ask me why no 'xargs' in sed; for now I am just pasting 'xargs' all over the place and see whether it works or not).
 
 25 Mar 2021
-****************************************
+----
 The -u option in cp often help when you are to lazy to use rsync, but copying takes too long and also was interupted, here is what it does:
 'copy only when the SOURCE file is newer than the destination file or when the destination file is missing'
 I often endup using:
@@ -237,7 +237,7 @@ Reading width and height without loading the whole image to memory - just open w
 image = Image.open(path)
 ```
 19 Mar 2021
-****************************************
+----
 Replace first char in each line inplace in all .txt files in directory:
 ```
 sed -i 's/^./new_string/g' *.txt
@@ -249,7 +249,7 @@ Delete all empty txt files:
 find . -name '*.txt' -size 0 -delete
 ```
 15 Mar 2021
-****************************************
+----
 Less with line numbering (-N) and starting from line (+n):
 ```
 less +29300 -N my_very_long_file_with_stupid_newline_missing_in_the_middle_of_it.txt
@@ -265,7 +265,7 @@ sort -R file.txt > out.txt
 In fact is sorts by hashes, so it's semi-random and stable.
 
 4 Mar 2021
-****************************************
+----
 Solution to "Argument list too long" error while trying to mv or cp a lot of files in bash:
 instead of mv * target_dir/
 ```
@@ -298,7 +298,7 @@ class StopExecution(Exception):
 raise StopExecution
 ```
 1 Mar 2021
-****************************************
+----
 Darknet/YOLO_v4 - tips:
 It's surprisingly hard to find the actual architecture of YOLO models; and there is no Tensorboard to browse through the computation graph.
 It appears that https://netron.app/ and https://github.com/lutzroeder/netron support Darknet's .cfg files and return beautiful, interactive graphs.
@@ -311,7 +311,7 @@ Asked questions on stack overflow, run some experiments; waiting for results.
 3) I still don't understand anchors/mask parameters per [yolo] layer instance. Why only a small portion of anchors is used at all?
 
 18 Feb 2021
-****************************************
+----
 My struggle to a find short but accurate description of the YOLO object detection network:
 
 First, we had sliding windows + classification.
@@ -321,7 +321,7 @@ Faster R-CNN learned a separate neural network to learn region proposals. The cl
 YOLO introduced grid, and for each grid cell m bounding boxes (aka. anchors) are generated. One network predicts class, offset, width/height adjustment.
 
 16 Feb 2021
-****************************************
+----
 Setting DNS records is always painful - tiny details matter, tutorials are often wrong, changes take undefined time to propagate.
 Github pages + GoDaddy:
 First had to disable redirection (which was hidden deep). Than set:
@@ -341,7 +341,7 @@ The repo has to be named huxwell.github.io, (huxwell = my username), Settings->C
 CNAME file in repo root: www.drapej.com (NOT drapej.com)
 
 15 Feb 2021
-****************************************
+----
 Git deleting branches:
 ```
 git push origin --delete branch_name
@@ -353,7 +353,7 @@ file_prefix = datetime.datetime.now().strftime("%Y_%m_%d-%H_%M_%S")
 !./darknet detector params 2>&1 | tee ../train_logs/{file_prefix}.txt
 
 12 Feb 2021
-****************************************
+----
 Neural Networks/ML in general:
 How to label border cases?
 Is 15% of a cat's tail a cat?
@@ -368,7 +368,7 @@ Received some long replies, but didn't learn anything new from them :(
 I need to find some papers that directly compare different approaches in quantitative way.
 
 11 Feb  2021
-****************************************
+----
 AWS EC2:
 If you stop VMs when you don't use them and then restart, the address will change each time which is super annoying with ssh.
 Go to console.aws.amazon.com -> type Elastic IPs in search -> choose ec2 feature (not VPC feature) -> Allocate Elastic IP address (use all default options)
@@ -377,7 +377,7 @@ Now you can always scp/sftp/ssh to newly created ip instead of always changing e
 According to aws.amazon.com/ec2/pricing/on-demand/ it costs around 12 cents / day if the instance is stopped AFAIU.
 
 10 Feb 2021
-****************************************
+----
 AWS EC2:
 Extend disc space (EBS):
 Instances: checkbox target VM, Storage, click volume id, actions, modify volume. 
@@ -389,7 +389,7 @@ sudo resize2fs /dev/xvda1
 No reboot required!
 
 3 Feb  2021
-****************************************
+----
 Jupyter shortcuts: Esc to leve editing mode, arrows to jump between cells
 ```
 DD - delete cell
@@ -404,13 +404,13 @@ Connect with forwarding:
 ssh -L 8888:localhost:8888 some_short_alias
 ```
 3 Feb  2021
-****************************************
+----
 Github pages: often an old versions of the files are being served. 
 https://github.com/user/repo/deployments
 ( https://github.com/huxwell/huxwell.github.io/deployments for me ) is a way to check if your commits have already been deployed.
 
 2 Feb  2021
-****************************************
+----
 With ssh (especially for Amazon EC2) it's very usefull to do alias in ~/.ssh/config, i.e:
 
 ```
@@ -427,8 +427,8 @@ rsync -av --dry-run /home/local_user/dir/ a_short_name:remote_dir_name
 
 
 1 Feb 2021
-**************************************** 
+---- 
 Hello World! (Or rather Hello Self!)
 
 31 Jan 2021
-**************************************** 
+---- 
