@@ -1,6 +1,6 @@
 <a href="index.html">Programming tips</a> | <a href="https://filip-drapejkowski.medium.com/">My Medium Articles</a>
 <pre>
-********* Lifehacks blog **********
+# Lifehacks blog
 List of my personal, subjective achievements from last two years:
 * Boulder climbing: ~6a (V2) -> regularly doing 7a (V6) boulders
 * Weight 90->72kg
