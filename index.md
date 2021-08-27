@@ -1,5 +1,3 @@
-[Lifehacks](lifehacks.html) | [My Medium Articles](https://filip-drapejkowski.medium.com/) | [My Android App](http://brainramen.com)
-
 # Programming tips blog 
 
 While installing ROS2 and Carla simulator on Ubuntu I got the following error:
