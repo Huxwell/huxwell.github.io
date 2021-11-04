@@ -1,5 +1,38 @@
 # Programming tips blog 
 
+Some short snippets that come in handy when I need to explain some more obscure features of Python:
+
+Lambdas examples:
+```
+print((lambda x, y, third_arg, blablabla: x * y - third_arg + blablabla)(5,100,501,2))
+
+list_1 = [1,2,3,4,5,6,7,8,9]
+print(list(filter(lambda x: x%2==0, list_1)))
+print(list(map(lambda x: pow(x,3), list_1)))
+
+```
+Decorators (with arguments):
+```
+def my_decorator(a_function_that_will_be_wrapped):
+    def a_wrapper_function(*args, **kwargs):
+        print("="*20)
+        a_function_that_will_be_wrapped(*args, **kwargs)
+        print("="*20)
+    return a_wrapper_function
+
+@my_decorator
+@my_decorator
+@my_decorator
+def print_something_twice(the_text):
+    print(the_text)
+    print(the_text)
+
+print_something_twice("Hello World!")  
+```
+
+4 Nov 2021
+----
+
 While installing ROS2 and Carla simulator on Ubuntu I got the following error:
 W: Target Packages (main/binary-all/Packages) is configured multiple times in /etc/apt/sources.list.d/ros2-latest.list:1 and /etc/apt/sources.list.d/ros2.list:1
 
