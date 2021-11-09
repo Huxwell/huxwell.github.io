@@ -4,9 +4,9 @@ I've been using python 'is' keyword without reflecting what I am actually doing,
 ```
 # The 'is' keyword is used to test if two variables refer to the same object.
 x = 3; y = 3; z = x
-print(x is y, x is z, id(x), id(z), id(y)) # True, True, 3x the same id
+print(x is y, x is z, id(x), id(z), id(y)) # True, True, 3x the same id; nothing suprising for numeric literals
 x = [1,2,3]; y = [1,2,3] ; z = x
-print(x is y, x is z, id(x), id(z), id(y)) # False, True, 2x the same id
+print(x is y, x is z, id(x), id(z), id(y)) # False, True, 2x the same id; different objects despite the same content
 ```
 
 9 Nov 2021
