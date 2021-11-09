@@ -1,5 +1,17 @@
 # Programming tips blog 
 
+I've been using python 'is' keyword without reflecting what I am actually doing, so here comes a snippet that explains it really well imho:
+```
+# The 'is' keyword is used to test if two variables refer to the same object.
+x = 3; y = 3; z = x
+print(x is y, x is z, id(x), id(z), id(y)) # True, True, 3x the same id
+x = [1,2,3]; y = [1,2,3] ; z = x
+print(x is y, x is z, id(x), id(z), id(y)) # False, True, 2x the same id
+```
+
+9 Nov 2021
+----
+
 Some short snippets that come in handy when I need to explain some more obscure features of Python:
 
 Lambdas examples:
