@@ -1,5 +1,36 @@
 # Programming tips blog 
 
+A few rarely seen functions and python features that come in handy while debugging.
+`global()` and `local()` are super useful when weird things happen in your code and it's due to variable scopes:
+
+
+```
+print(locals() is globals()) #True
+def foo():
+	a=12; b=13; c=[1,"2",["three"]]
+	print(locals() is globals(), locals())
+foo() # False, a dictionary with local variables and their values
+
+print(globals)
+```
+Run these to understand better pythons's modules or for debugging when multiple versions of the same library (or multiple version of Python) might be in conflict:
+
+```
+import sys
+import math
+print(sys.modules)
+print(math.__dict__)
+import fractions
+print(sys.modules['math'])
+print(sys.modules['fractions'])
+print(dir(fractions)) # dir(module) may just return module.__dict__ in some situations
+print(fractions.__dict__)
+print(fractions.__file__)
+```
+
+12 Nov 2021
+----
+
 I've been using python 'is' keyword without reflecting what I am actually doing, so here comes a snippet that explains it really well imho:
 ```
 # The 'is' keyword is used to test if two variables refer to the same object.
