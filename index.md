@@ -56,6 +56,10 @@ print(sys.modules['fractions'])
 print(dir(fractions)) # dir(module) may just return module.__dict__ in some situations
 print(fractions.__dict__)
 print(fractions.__file__)
+
+sys.modules['testing_imports'] = lambda: "It looks in sys.modules"
+import testing_imports
+testing_imports()
 ```
 Btw, if you import a module twice, it only gets **executed** once; subsequent calls are ignored since the module is already in cache.
 But if you delete a reference from globals with `del globals()["module_name"]` you could re-import successfully.
