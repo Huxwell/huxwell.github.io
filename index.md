@@ -45,8 +45,8 @@ Run these to understand better pythons's modules or for debugging when multiple 
 ```
 import sys
 import math
-# print(sys.modules) #lots of output
-print(sys.paths) # shows the paths that are used for importing modules!
+# print(sys.modules) # lots of output
+print(sys.path) # shows the paths that are used for importing modules!
 print(math.__dict__)
 import fractions
 print(sys.modules['math'])
