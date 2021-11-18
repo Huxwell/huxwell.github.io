@@ -13,7 +13,8 @@ __version__ = "1.0.0"
 import argparse
 
 def main(args):
-    print("Reading from ", args.input_path)
+    if args.verbose > 0:
+        print("Reading from ", args.input_path)
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="This script does nothing.")
     parser.add_argument("--input_path", help="Input txt file path with data about nothing.", default="input_file.txt")
@@ -46,6 +47,7 @@ Run these to understand better pythons's modules or for debugging when multiple 
 import sys
 import math
 # print(sys.modules) # lots of output
+sys.path.append("/directory/with/a/module") # a dirty hack for imports
 print(sys.path) # shows the paths that are used for importing modules!
 print(math.__dict__)
 import fractions
