@@ -17,7 +17,7 @@ def simple_import(module_name, module_file_path, module_path):
 
     sys.modules[module_name] = mod # insert a reference to the module in sys.modules
     code = compile(source_code, filename=module_file_path, mode='exec')
-    exec(code, mod.__dict__) # execute the module, we want the global variables to be stored in mod.__dict__
+    exec(code, mod.__dict__) # execute the module, store global variables in mod.__dict__
     return sys.modules[module_name]
 
 print('Trying to get some_module from sys.modules:', sys.modules.get('some_module'))
