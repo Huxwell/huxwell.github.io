@@ -1,9 +1,63 @@
 # Programming tips blog 
+If you've ever wondered how python imports modules, here comes a **simplified** reimplementation of import function based on https://github.com/fbaptiste/python-deepdive
+
+main.py:
+```
+import os.path; import types; import sys
+
+def simple_import(module_name, module_file_path, module_path):
+    if module_name in sys.modules:
+        return sys.modules[module_name]
+
+    with open(module_file_path, 'r') as code_file: # read source code from file
+        source_code = code_file.read()
+    
+    mod = types.ModuleType(module_name) # next we create a module object
+    mod.__file__ = module_file_path
+
+    sys.modules[module_name] = mod # insert a reference to the module in sys.modules
+    code = compile(source_code, filename=module_file_path, mode='exec')
+    exec(code, mod.__dict__) # execute the module, we want the global variables to be stored in mod.__dict__
+    return sys.modules[module_name]
+
+print('Trying to get some_module from sys.modules:', sys.modules.get('some_module'))
+module1 = simple_import('some_module', 'some_module.py', '.')
+print('Trying to get some_module from sys.modules:', sys.modules.get('some_module'))
+import other_module
+other_module.hello()
+```
+some_module.py
+```
+print('some_module.py')
+def hello():
+    print('some_module says Hello!')
+```
+other_module.py
+```
+print('Running other_module.py')
+import some_module
+def hello():
+    print('other_module says Hello!\nand...')
+    some_module.hello()
+```
+This doesn't cover searching for the code in .py and .zip files from `print(sys.path)`.
+Importer = loader + finder, you can look for avaiable importers by printing `sys.meta_path`. Also, for already imported modules you can print their `__spec__`:
+```
+import math; import fractions
+print(sys.meta_path)
+print(math.__spec__)
+print(fractions.__spec__)
+```
+For an actual implementation of import used by Python, google "importlib".
+
+19 Nov 2021
+----
+
 A template for simple python scripts:
 
 ```
 """ 
-Docstring: I hate when ex-java developers spam unnecessary boilerplate abstractions that do nothing 'just-in-case' so that the code is 'future-proof' and 'universal'.
+Docstring: I hate it when ex-java developers spam unnecessary boilerplate abstractions that do nothing 'just-in-case' so that the code is 'future-proof' and 'universal'.
 Nevertheless, in each ML project I find myself surrounded by dozens of throwaway scripts that get really messy when shared over github/box/gdrive/devboxes/ec2 instances.
 Please use it as your default starting python file.
 """
@@ -41,7 +95,7 @@ foo() # False, a dictionary with local variables and their values
 
 print(globals)
 ```
-Run these to understand better pythons's modules or for debugging when multiple versions of the same library (or multiple version of Python) might be in conflict:
+Run these to understand Pythons's modules better or to debug conflicting dependencies:
 
 ```
 import sys
@@ -57,12 +111,12 @@ print(dir(fractions)) # dir(module) may just return module.__dict__ in some situ
 print(fractions.__dict__)
 print(fractions.__file__)
 
-sys.modules['testing_imports'] = lambda: "It looks in sys.modules"
+sys.modules['testing_imports'] = lambda: "Import looked in sys.modules and found me even though I'm not a module."
 import testing_imports
 testing_imports()
 ```
 Btw, if you import a module twice, it only gets **executed** once; subsequent calls are ignored since the module is already in cache.
-But if you delete a reference from globals with `del globals()["module_name"]` you could re-import successfully.
+But if you delete a reference from globals with `del globals()["module_name"]` you can re-import successfully.
 
 11 Nov 2021
 ----
