@@ -1,4 +1,28 @@
 # Programming tips blog 
+Observations on unpacking (lists, tuples, dicts, sets etc) and tuples in python.
+Parantheses `(` `)` don't make a tuple. Comma `,` does.
+```
+type((1)) #<class 'int'>
+type((1,)) #<class 'tuple'>
+type(1,) # <class 'tuple'>
+```
+When we do unpacking...
+```
+a,b = b,a #swapping values without tmp variable
+a,b,c = [1,2,3]
+a,b,c = (1,2,3)
+a,b,c = 1,2,3
+```
+...we are actually creating tuples which then get unpacked. You can verify that with:
+```
+t = z,y,z = [1,2,3]
+type(t) #<class 'tuple'>
+type(y) #<class 'int'>
+```
+
+29 Nov 2021
+----
+
 If you've ever wondered how python imports modules, here comes a **simplified** reimplementation of import function based on https://github.com/fbaptiste/python-deepdive
 
 main.py:
