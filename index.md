@@ -1,4 +1,17 @@
 # Programming tips blog 
+Here come some more examples of unpacking (now with the star * operator) that seem to explain the concept really well.
+Star on the left hand side of an expression means "assign all elements not assigned to other variables":
+```
+a,b,*c,d = [1,2,3,4,5,6,7]
+print(a,b,c,d) # 1 2 [3,4,5,6] 7
+```
+On the right hand side it can be used to merge iterables (by unpacking them and using them as arguments for new list):
+```
+l1 = [1,2,3]; l2 = [3,4,5]
+print([*l1,*l2]) # [1,2,3,3,4,5]
+```
+3 Dec 2021
+----
 Observations on unpacking (lists, tuples, dicts, sets etc) and tuples in python.
 Parantheses `(` `)` don't make a tuple. Comma `,` does.
 ```
@@ -18,11 +31,6 @@ a,b,c = 1,2,3
 t = z,y,z = [1,2,3]
 type(t) #<class 'tuple'>
 type(y) #<class 'int'>
-```
-Btw, just to show how star operator for unpacking works:
-```
-a,b,*c,d = [1,2,3,4,5,6,7]
-print(a,b,c,d) # 1 2 [3, 4, 5, 6] 7
 ```
 29 Nov 2021
 ----
