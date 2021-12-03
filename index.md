@@ -19,7 +19,11 @@ t = z,y,z = [1,2,3]
 type(t) #<class 'tuple'>
 type(y) #<class 'int'>
 ```
-
+Btw, just to show how star operator for unpacking works:
+```
+a,b,*c,d = [1,2,3,4,5,6,7]
+print(a,b,c,d) # 1 2 [3, 4, 5, 6] 7
+```
 29 Nov 2021
 ----
 
