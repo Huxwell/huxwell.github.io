@@ -5,18 +5,25 @@ Star on the left hand side of an expression means "assign all elements not assig
 a,b,*c,d = [1,2,3,4,5,6,7]
 print(a,b,c,d) # 1 2 [3,4,5,6] 7
 ```
-On the right hand side it can be used to merge iterables (by unpacking them and using them as arguments for new list):
+On the right hand side it can be used to merge iterables (by unpacking them and using them as arguments for a new list):
 ```
 l1 = [1,2,3]; l2 = [3,4,5]
 print([*l1,*l2]) # [1,2,3,3,4,5]
 ```
 We can unpack dictionaries (we get their keys, they are NOT ordered, so it's better to unpack to set `{}` to avoid confusion):
 ```
-d1 = {"a":1,"b":"lorem ipsum"}; d2 = {1:"kappa","c":"gg"}; d3 = {99:"hf"}
-print({*d1,*d2,*d3})
+d1 = {"a":1,"b":"lorem ipsum"}; d2 = {1:"kappa","c":"gg"}; d3 = {99:"hf", "c": "g"}
+print({*d1,*d2,*d3}) # {1, 99, 'b', 'c', 'a'} - or different order
 ```
+With double star `**` (this one can be used only on right hand side of the expression!) we can unpack dictionaries:
+```
+print({**d1,**d2,**d3}) # {'a': 1, 'b': 'lorem ipsum', 1: 'kappa', 'c': 'g', 99: 'hf'}
+```
+Note that we lost the "gg" key - it got overwritten by the value from the last dictionary we unpacked.
+
 3 Dec 2021
 ----
+
 Observations on unpacking (lists, tuples, dicts, sets etc) and tuples in python.
 Parantheses `(` `)` don't make a tuple. Comma `,` does.
 ```
@@ -37,6 +44,7 @@ t = z,y,z = [1,2,3]
 type(t) #<class 'tuple'>
 type(y) #<class 'int'>
 ```
+
 29 Nov 2021
 ----
 
