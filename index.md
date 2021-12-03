@@ -10,6 +10,11 @@ On the right hand side it can be used to merge iterables (by unpacking them and 
 l1 = [1,2,3]; l2 = [3,4,5]
 print([*l1,*l2]) # [1,2,3,3,4,5]
 ```
+We can unpack dictionaries (we get their keys, they are NOT ordered, so it's better to unpack to set `{}` to avoid confusion):
+```
+d1 = {"a":1,"b":"lorem ipsum"}; d2 = {1:"kappa","c":"gg"}; d3 = {99:"hf"}
+print({*d1,*d2,*d3})
+```
 3 Dec 2021
 ----
 Observations on unpacking (lists, tuples, dicts, sets etc) and tuples in python.
