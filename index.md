@@ -1,4 +1,39 @@
 # Programming tips blog 
+Adapted a function which is helps me a lot when I need to quickly profile some other function:
+```
+from functools import wraps
+import time
+
+def time_func(func_to_time):
+    @wraps(func_to_time)
+    #wraps() doesn't do anything fancy - it's only here so that docstring and function __name__ are preserved
+    #you can omit it if you want
+    def timed(*args, **kw):
+        start = time.time()
+        result = func_to_time(*args, **kw)
+        stop = time.time()
+        print(f'ELAPSED TIME: {func_to_time.__name__}() {stop - start}')
+        return result
+    return timed
+```
+Can be used as a decorator:
+```
+@time_func
+def dummy(seconds):
+    time.sleep(seconds)   
+    
+dummy(3) # ELAPSED TIME: dummy() 3.00302
+```
+Or as an alias when we don't have easy access to the function definition:
+
+```
+timed_sleep = time_func(time.sleep)
+timed_sleep(3) #ELAPSED TIME: sleep() 3.00302
+```
+
+14 Dec 2021
+----
+
 Here come some more examples of unpacking (now with the star * operator) that seem to explain the concept really well.
 Star on the left hand side of an expression means "assign all elements not assigned to other variables":
 ```
