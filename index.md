@@ -1,4 +1,29 @@
 # Programming tips blog 
+
+I'm deploying a mask-rcnn based app, and my docker images were 20GB+. So here are some tips that allowed me to get it to ~10GB:
+
+- Use runtime base images instead of devel ones whenever possible. This might save 5-6GB easily. Sometimes this will force you to apt get install `python3-dev` or `build-essential` or `gcc` manually, but it's still worth it. For example:
+```
+FROM nvidia/cuda:11.3.1-cudnn8-runtime
+#used to be: FROM cuda:11.3.1-cudnn8-devel-ubuntu20.04
+```
+- Create .dockerignore with `.git` as it's content. For some ungodly reasons people decided to commit model weights, videos and other oversised trash into the repository so until we fix this, this tip saves us ~1GB.
+- Combine commands using `&&` and `\` to break lines for readability. This reduces number of layers (each `RUN` creates a new layer). If a file gets deleted in layer n+1, layer n keeps taking disc space (and is shipped i.e to ECR and your destination **with** the  seemingly deleted file). Example:
+```
+RUN wget https://github.com/opencv/opencv/archive/4.5.3.zip \
+        && unzip 4.5.3.zip && rm 4.5.3.zip \ 
+        && wget https://github.com/opencv/opencv_contrib/archive/4.5.3.zip \
+        && unzip 4.5.3.zip \
+        && rm 4.5.3.zip \
+        && mkdir opencv-4.5.3/build
+```
+- Don't install recommends `RUN apt-get install -y --no-install-recommends`. Occasionally this breaks some code, so test it first.
+- Don't cache to whl files: `pip3 install --no-cache-dir`. Not sure how this affects perfromance though, wasn't able to find any info.
+
+22 Dec 2021
+----
+
+
 Adapted a function which is helps me a lot when I need to quickly profile some other function:
 ```
 from functools import wraps
