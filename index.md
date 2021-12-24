@@ -1,5 +1,28 @@
 # Programming tips blog 
 
+A bunch of minor tricks for development with docker and git:
+
+In separate terminal window kill all docker containers, if docker ignores SIGINT and SIGTSTP (ctrl+c and ctrl+z):
+```
+docker kill $(docker ps -q)
+```
+Enter a running docker container with bash, so you can look at filesystem, debug, execute different scripts etc.
+```
+docker exec -it $(docker ps -q) /bin/bash
+```
+
+Git. Let's say you forgot to add a file before a commit, or maybe you see a typo, or a really minor change.
+```
+git add my_changed_file.ext
+git commit --amend --no-edit
+```
+Beware though, if you already pushed your changes, you will have to use ```git push --force``` now and this **will erase the work of other people** if it was committed in the meantime. This is only allowed if you are absolutely sure nobody else works on your branch.
+
+
+23 Dec 2021
+----
+
+
 I'm deploying a mask-rcnn based app, and my docker images were 20GB+. So here are some tips that allowed me to get it to ~10GB:
 
 - Use runtime base images instead of devel ones whenever possible. This might save 5-6GB easily. Sometimes this will force you to apt get install `python3-dev` or `build-essential` or `gcc` manually, but it's still worth it. For example:
