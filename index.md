@@ -10,6 +10,13 @@ Enter a running docker container with bash, so you can look at filesystem, debug
 ```
 docker exec -it $(docker ps -q) /bin/bash
 ```
+Find out which layers of your docker image take most disc space:
+```
+docker history image_id 
+# for more details:
+docker history --no-trunc image_d
+```
+Also, https://github.com/wagoodman/dive is an option (an open source tool for inspecting docker images with 29k+ stars on github).
 
 Git. Let's say you forgot to add a file before a commit, or maybe you see a typo, or a really minor change.
 ```
@@ -19,7 +26,7 @@ git commit --amend --no-edit
 Beware though, if you already pushed your changes, you will have to use ```git push --force``` now and this **will erase the work of other people** if it was committed in the meantime. This is only allowed if you are absolutely sure nobody else works on your branch.
 
 
-23 Dec 2021
+27 Dec 2021
 ----
 
 
