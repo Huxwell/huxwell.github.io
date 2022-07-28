@@ -1,5 +1,22 @@
 # Programming tips blog 
 
+Clean heavy dir from .git history. May require manual rm from actual filetree. Use `du -sh` to verify if it worked. This will also remove origin so you won't accidentally push something super nasty; it's good i.e for splitting a big repo into two - and rather bad to run on existing repo that is used by a lot of people. The approach from bitbucket with filter-branch https://support.atlassian.com/bitbucket-cloud/docs/split-a-repository-in-two/ doesn't work for me.
+```
+git filter-repo --force --path single_path_without_slash --invert-paths
+```
+
+To change history (obviously, this one is also potentially dangerous) when smb commited from aws as Ubuntu:
+```
+echo "NewName NewSurname <new@email> <ubuntu@mumbo-jumbo-from-ec2>" >> .mailmap
+git-filter-repo --use-mailmap
+rm .mailmap
+```
+
+
+28 Jul 2022
+----
+
+
 A bunch of minor tricks for development with docker and git:
 
 In separate terminal window kill all docker containers, if docker ignores SIGINT and SIGTSTP (ctrl+c and ctrl+z):
