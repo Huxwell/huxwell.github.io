@@ -1,5 +1,30 @@
 # Programming tips blog 
 
+Nvidia drivers/cuda/cudnn crushes are a never ending horror for the machine learning devs.
+Countless days wasted on debugging those trivial problems (I.e after AWS issues an upgrade command on EC2 without user interaction and the upgrade fails)... As a rule of thumb, issue following commands (order may vary) before doing any manual complicated operations (such as purge or downloading drivers from nvidia website as .deb or .run)
+
+```
+sudo apt autoremove
+sudo apt --fix-broken install
+sudo apt update
+sudo apt upgrade
+sudo reboot
+```
+
+Also, 
+```
+cat /var/log/apt/history.log
+dpkg -l | grep nvidia
+cat /proc/driver/nvidia/version
+ls -l /usr/lib/x86_64-linux-gnu/libcuda
+``` 
+to understand your situation better
+
+25 Aug 2022
+----
+
+
+
 Clean heavy dir from .git history. May require manual rm from actual filetree. Use `du -sh` to verify if it worked. This will also remove origin so you won't accidentally push something super nasty; it's good i.e for splitting a big repo into two - and rather bad to run on existing repo that is used by a lot of people. The approach from bitbucket with filter-branch https://support.atlassian.com/bitbucket-cloud/docs/split-a-repository-in-two/ doesn't work for me.
 ```
 git filter-repo --force --path single_path_without_slash --invert-paths
