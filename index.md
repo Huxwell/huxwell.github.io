@@ -1,5 +1,22 @@
 # Programming tips blog 
 
+How to create an img from raspberry pi sd card (for backup or quick setup for new users/new rpis), but also make sure it's actual content size not full sd card size:
+
+* `sudo fdisk -l` to dinf partition; `boot` and `rootfs` will both go if you copy one slash up
+* `dd if=/path/to/input of=/path/to/output status=progress`
+* but also add `conv=sparse`
+* resize the sd card
+* use count=1500 and bs=1MB to only get 15G of data
+* pad with zeros `if=/dev/zero of=largerfile.txt` and rm
+* use balenaEtcher instead of rpi imager to write the image to a new sd card
+
+Not sure what exactly did the trick, but I'd first go with resize&count before trying to pad.
+
+
+8 March 2022
+----
+
+
 Nvidia drivers/cuda/cudnn crushes are a never ending horror for the machine learning devs.
 Countless days wasted on debugging those trivial problems (I.e after AWS issues an upgrade command on EC2 without user interaction and the upgrade fails)... As a rule of thumb, issue following commands (order may vary) before doing any manual complicated operations (such as purge or downloading drivers from nvidia website as .deb or .run)
 
