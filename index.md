@@ -24,14 +24,15 @@ id can be copied from `google_compute_known_hosts` (I couldn't find it in web gu
 Python path may need to be changed (this still causes issues with numpy, I guess?).
 
 
-----
 13 March 2022
+----
 
 Transferring big file, continue if interrupted. Read that in some cases inplace causes issues and `timeout` should be used instead (counterintuitively), but for now it works fine.
 
 ```
 rsync -av --partial --append --inplace --info=progress /home/user/path/to/verybigfiler.zip  user@ip:/home/user/path/to/verybigfile.zip 
 ```
+
 
 12 March 2022
 ----
