@@ -19,7 +19,7 @@ Host compute.<id>
 
 Hostname matters (!). Also, add you .pub key to instance.
 
-<id> can be copied from `/home/<username>/.ssh/google_compute_known_hosts` (I couldn't find it in web gui).
+<id> can be copied from `google_compute_known_hosts` (I couldn't find it in web gui).
 	
 Python path may need to be changed (this still causes issues with numpy, I guess?).
 
