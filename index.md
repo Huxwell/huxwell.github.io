@@ -4,22 +4,22 @@ Google Cloud Services: my IT blocks External IP,this workaround allows me to ssh
 `~/.ssh/config`
 
 ```
-Host compute.<id>
-  HostName compute.<id>
-  IdentityFile /home/<username>/.ssh/google_compute_engine
+Host compute.id
+  HostName compute.id
+  IdentityFile /home/username/.ssh/google_compute_engine
   CheckHostIP no
-  HostKeyAlias compute.<id>
+  HostKeyAlias compute.id
   IdentitiesOnly yes
   StrictHostKeyChecking yes
-  UserKnownHostsFile /home/<username>/.ssh/google_compute_known_hosts
-  ProxyCommand /usr/bin/python3 -S /home/<username>/google-cloud-sdk/lib/gcloud.py beta compute start-iap-tunnel instnacename %p --listen-on-stdin --project=<projectname> --zone=<zone> --verbosity=warning
+  UserKnownHostsFile /home/username/.ssh/google_compute_known_hosts
+  ProxyCommand /usr/bin/python3 -S /home/username/google-cloud-sdk/lib/gcloud.py beta compute start-iap-tunnel instnacename %p --listen-on-stdin --project=projectname --zone=zone --verbosity=warning
   ProxyUseFdpass no
-  User <username>
+  User username
 ```
 
 Hostname matters (!). Also, add you .pub key to instance.
 
-<id> can be copied from `google_compute_known_hosts` (I couldn't find it in web gui).
+id can be copied from `google_compute_known_hosts` (I couldn't find it in web gui).
 	
 Python path may need to be changed (this still causes issues with numpy, I guess?).
 
