@@ -1,4 +1,29 @@
 # Programming tips blog 
+
+I love fzf. I've been installing it on every laptop, vm, cluster, raspberry pi etc I touch.
+It does fuzzy autocompletion - `crl+R` combo in terminal just works better than normally. 
+
+
+```
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install
+```
+
+Then 'y' for everything.
+Recently I've learned, you can also use `alt+c` to get fuzzy cd, and `** + tab` to get fuzzy autocompletion from: https://news.ycombinator.com/item?id=35248098 .
+But there is also one more gamechanging trick, that makes history work much better (and, by extension, fzf):
+
+```
+shopt -s histappend
+PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
+```
+Put those lines in your ~/.bashrc to prevent loosing history with multiple parallel ssh sessions. You still need to restart another session so that it can see the history; but at least now it doesn't have to wait for the first session to be **properly** closed. Src: https://web.archive.org/web/20090815205011/http://www.cuberick.com/2008/11/update-bash-history-in-realtime.html
+
+
+23 March 2022
+----
+
+
 Google Cloud Services: my IT blocks External IP,this workaround allows me to ssh/rsync/sftp/vscode integration:
 
 `~/.ssh/config`
