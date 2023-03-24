@@ -10,7 +10,10 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ```
 
 Then 'y' for everything.
-Recently I've learned, you can also use `alt+c` to get fuzzy cd, and `** + tab` to get fuzzy autocompletion from: https://news.ycombinator.com/item?id=35248098 .
+Recently I've learned, you can also use `alt+c` to get fuzzy cd, and `** + tab` to get fuzzy autocompletion from: https://news.ycombinator.com/item?id=35248098 . 
+
+Example usage of `** tab`: `source ** tab activate` to activate venv quicker (works with vscode!).
+
 But there is also one more gamechanging trick, that makes history work much better (and, by extension, fzf):
 
 ```
