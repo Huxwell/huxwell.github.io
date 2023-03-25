@@ -1,5 +1,18 @@
 # Programming tips blog 
 
+Increase bash history size:
+
+
+```
+echo $HISTSIZE; echo $HISTFILESIZE #check current limit - for me it was 1000 and 2000 by default
+nano ~/.bashrc # the lines were ind the middle of the file - I've changed to 5k and 10k respectively
+source ~/.bashrc
+```
+
+
+25 March 2022
+----
+
 I love fzf. I've been installing it on every laptop, vm, cluster, raspberry pi etc I touch.
 It does fuzzy autocompletion - `crl+R` combo in terminal just works better than normally. 
 
