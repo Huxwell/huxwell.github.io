@@ -80,7 +80,7 @@ rsync -av --partial --append --inplace --info=progress /home/user/path/to/verybi
 
 How to create an img from raspberry pi sd card (for backup or quick setup for new users/new rpis), but also make sure it's actual content size not full sd card size:
 
-* `sudo fdisk -l` to dinf partition; `boot` and `rootfs` will both go if you copy one slash up
+* `sudo fdisk -l` to dinf partition; `boot` and `rootfs` will both go if you copy ~~one slash up~~ **more general path** i.e. /dev/mmcblk0 instead of /dev/mmcblk0p1 or /dev/mmcblk0p2
 * `dd if=/path/to/input of=/path/to/output status=progress`
 * but also add `conv=sparse`
 * resize the sd card
