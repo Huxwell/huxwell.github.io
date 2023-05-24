@@ -1,5 +1,23 @@
 # Programming tips blog 
 
+Delete output_ detection files if they don't contain any models (.pth) inside.
+
+```
+find . -type d -name 'output_*' '!' -exec sh -c 'ls -1 "{}"/*.pth >/dev/null 2>&1' ';' -exec mv -trash/ {} +
+```
+
+Backup training code with training results (so that I always know what code produced them)
+```
+current_file = os.path.basename(__file__)
+output_file = os.path.join(OUTPUT_DIR, current_file)
+shutil.copyfile(__file__, output_file)
+```
+
+
+24 May 2022
+----
+
+
 Increase bash history size:
 
 
