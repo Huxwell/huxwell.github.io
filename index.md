@@ -3,7 +3,7 @@
 Delete output_ detection files if they don't contain any models (.pth) inside.
 
 ```
-find . -type d -name 'output_*' '!' -exec sh -c 'ls -1 "{}"/*.pth >/dev/null 2>&1' ';' -exec mv -trash/ {} +
+find . -type d -name 'output_*' '!' -exec sh -c 'ls -1 "{}"/*.pth >/dev/null 2>&1' ';' -exec mv -ttrash/ {} +
 ```
 
 Backup training code with training results (so that I always know what code produced them)
