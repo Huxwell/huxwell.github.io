@@ -1,5 +1,13 @@
 # Programming tips blog 
 
+Even better, count no of files of each extension:
+```
+for dir in */; do for ext in jpg json; do echo "${dir}${ext}: $(ls -l ${dir}*.${ext} 2>/dev/null | wc -l)"; done; done
+```
+
+25 May 2022
+----
+
 
 `ls path/to/dir | wc -l` but for all subdirs 
 
