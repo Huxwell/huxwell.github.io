@@ -1,5 +1,13 @@
 # Programming tips blog 
 
+
+`ls path/to/dir | wc -l` but for all subdirs 
+
+```
+for dir in */; do echo "${dir}: $(ls -l ${dir} | grep "^-" | wc -l)"; done
+```
+
+
 Delete output_ detection files if they don't contain any models (.pth) inside.
 
 ```
