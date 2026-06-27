@@ -1,0 +1,9 @@
+# local notes / scratch
+tmp.md
+
+# Jekyll local build + project-local gems (venv-equivalent)
+_site/
+.jekyll-cache/
+.bundle/
+vendor/
+Gemfile.lock
